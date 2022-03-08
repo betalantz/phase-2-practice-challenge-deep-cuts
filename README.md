@@ -83,7 +83,7 @@ Request Object:
   "image": "string",
   "title": "string",
   "artist": "string",
-  "bpm": number
+  "BPM": number
 }
 ```
 
