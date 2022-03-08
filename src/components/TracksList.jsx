@@ -20,10 +20,6 @@ function TracksList() {
           </th>
         </tr>
         {/* render a list of <Track> components here */}
-        <Track />
-        <Track />
-        <Track />
-        <Track />
       </tbody>
     </table>
   )
