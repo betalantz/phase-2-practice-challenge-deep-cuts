@@ -1,70 +1,124 @@
-# Getting Started with Create React App
+# Flatiron Deep Cuts
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![](./finished-project.png)
 
-## Available Scripts
+As an international DJ and music producer, you need a way to keep track of all the beats you mix together to keep the dancefloor jumping!
 
-In the project directory, you can run:
+## Instructions
 
-### `npm start`
+For this project, you’ll be building out a React application that displays a
+list of song tracks, among other features.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Part of what this code challenge is testing is your ability to follow given
+instructions. While you will definitely have a significant amount of freedom in
+how you implement the features, be sure to carefully read the directions for
+setting up the application.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Setup
 
-### `npm test`
+After unbundling the project:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Run `npm install` in your terminal.
+2. Run `npm run server`. This will run your backend on port `8085`.
+3. In a new terminal, run `npm start`.
 
-### `npm run build`
+Make sure to open
+[http://localhost:8001/tracks](http://localhost:8001/tracks) in the
+browser to verify that your backend is working before you proceed!
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+If you are unfamiliar with HTML tables, take a look at the
+[docs with an example here](https://www.w3schools.com/html/html_tables.asp)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Endpoints
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The base URL for your backend is: `http://localhost:8001`
 
-### `npm run eject`
+## Core Deliverables
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+As a user, I should be able to:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- See a table of all the tracks currently in your library.
+- Fill out and submit the form to add a new track. This should add the new track to the table **as well as post the new track to the backend API for persistence**.
+- Filter tracks by typing into the search bar. Only tracks that have any field that matches the search term should be shown in the table. Filtering happens 'live' as the search term is typed into the search bar.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Endpoints for Core Deliverables
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### GET /tracks
 
-## Learn More
+Example Response:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```json
+[
+  {
+    "id": 1,
+    "title": "Givenchy",
+    "artist": "Lonely Boy",
+    "BPM": 122,
+    "image": "https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvMTUxMzAyMi9pbWFnZS9rODlZRzAxclh0VXkvY2djZmd4ZmcuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7ImZpdCI6ImZpbGwiLCJ3aWR0aCI6MjQwLCJoZWlnaHQiOjI0MH19fQ==?t=1638295080242"
+},
+{
+    "id": 2,
+    "title": "Move Different",
+    "artist": "Buddha Vybez",
+    "BPM": 129,
+    "image": "https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvNDkxNTQ2L2ltYWdlL0NMeFd0R09QaEM0Ty9tb3ZlZGlmZmVyZW50LmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJmaWxsIiwid2lkdGgiOjI0MCwiaGVpZ2h0IjoyNDB9fX0=?t=1639408815480"
+}
+]
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### POST `/tracks`
 
-### Code Splitting
+Required Headers:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```js
+{
+  "Content-Type": "application/json"
+}
+```
 
-### Analyzing the Bundle Size
+Request Object:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```json
+{
+  "image": "string",
+  "title": "string",
+  "artist": "string",
+  "bpm": number
+}
+```
 
-### Making a Progressive Web App
+Example Response:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```json
+{
+    "id": 5,
+    "title": "Yichang",
+    "artist": "beefy",
+    "BPM": 107,
+    "image": "https://cdn5.beatstars.com/eyJidWNrZXQiOiJidHMtY29udGVudCIsImtleSI6InVzZXJzL3Byb2QvODI0NDExL2ltYWdlL0EzRkRJQjlHQkJTRC8yMDIyMDEyOC5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsiZml0IjoiZmlsbCIsIndpZHRoIjoyNDAsImhlaWdodCI6MjQwfX19?t=1643380284285"
+}
+```
 
-### Advanced Configuration
+## Advanced Deliverables
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+These deliverables are not required to pass the code challenge, but if you have
+the extra time, or even after the code challenge, they are a great way to
+stretch your skills.
 
-### Deployment
+> Note: If you are going to attempt these advanced deliverables, please be sure
+> to have a working commit with all the Core Deliverables first!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+As a user, I should be able to:
 
-### `npm run build` fails to minify
+- Sort tracks alphabetically by artist or numerically by BPM.
+- Delete a track which will remove it from the table and delete it from the backend.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Endpoints for Advanced Deliverables
+
+#### DELETE /tracks/:id
+
+Example Response:
+
+```json
+{}
+```
