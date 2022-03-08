@@ -1,12 +1,13 @@
 import React from 'react'
 
-function Search() {
+function Search({ searchTerm, onSearchChange}) {
   return (
     <div className="search">
         <input
         type="text"
         placeholder="Search your Tracks"
-        onChange={() => console.log("Searching...")}
+        value={searchTerm}
+        onChange={(e) => onSearchChange(e.target.value)}
         />
         <i className="">🔎</i>
 

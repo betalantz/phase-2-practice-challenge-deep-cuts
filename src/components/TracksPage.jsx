@@ -13,12 +13,18 @@ function TracksPage() {
       .then(res => res.json())
       .then(setTracks)
   }, [])
-  
+
+  const filteredTracks = tracks.filter(track => {
+    return track.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          track.artist.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          track.BPM.toString().includes(searchTerm) 
+  })
+
   return (
     <div>
-      <Search />
+      <Search searchTerm={searchTerm} onSearchChange={setSearchTerm}/>
       <AddTrackForm />
-      <TracksList tracks={tracks}/>
+      <TracksList tracks={filteredTracks}/>
     </div>
   )
 }
