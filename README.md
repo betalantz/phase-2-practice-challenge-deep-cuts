@@ -19,7 +19,7 @@ setting up the application.
 After unbundling the project:
 
 1. Run `npm install` in your terminal.
-2. Run `npm run server`. This will run your backend on port `8085`.
+2. Run `npm run server`. This will run your backend on port `8001`.
 3. In a new terminal, run `npm start`.
 
 Make sure to open
