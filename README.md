@@ -39,7 +39,7 @@ As a user, I should be able to:
 
 - See a table of all the tracks currently in your library.
 - Fill out and submit the form to add a new track. This should add the new track to the table **as well as post the new track to the backend API for persistence**.
-- Filter tracks by typing into the search bar. Only tracks that have any field that matches the search term should be shown in the table. Filtering happens 'live' as the search term is typed into the search bar.
+- Filter tracks by typing into the search bar. Only tracks that have a title or artist field that matches the search term should be shown in the table. Filtering happens 'live' as the search term is typed into the search bar.
 
 ### Endpoints for Core Deliverables
 
