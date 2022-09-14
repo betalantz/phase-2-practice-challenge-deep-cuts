@@ -16,19 +16,19 @@ function TracksPage() {
       .then(setTracks)
   }, [])
 
-  const postNewTrack = ({image, title, artist, bpm}) => {
-    const newTrackBody = {
-      image,
-      title,
-      artist,
-      BPM: Number(bpm)
-    }
+  const postNewTrack = (newTrackObj) => {
+    // const newTrackBody = {
+    //   image,
+    //   title,
+    //   artist,
+    //   BPM: Number(bpm)
+    // }
     const options = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(newTrackBody)
+      body: JSON.stringify(newTrackObj)
     }
     return fetch(baseUrl, options)
       .then(res => res.json())
@@ -44,8 +44,7 @@ function TracksPage() {
 
   const filteredTracks = tracks.filter(track => {
     return track.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          track.artist.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          track.BPM.toString().includes(searchTerm) 
+          track.artist.toLowerCase().includes(searchTerm.toLowerCase()) 
   })
 
   return (

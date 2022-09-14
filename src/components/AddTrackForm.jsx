@@ -1,13 +1,15 @@
 import React, {useState} from 'react'
 
-function AddTrackForm({ onSubmitTrack}) {
-
-  const [formData, setFormData] = useState({
+const defaultFormData = {
     image: '',
     title: '',
     artist: '',
-    bpm: ''
-  })
+    BPM: ''
+}
+
+function AddTrackForm({ onSubmitTrack}) {
+
+  const [formData, setFormData] = useState(defaultFormData)
 
   const handleChange = e => {
     setFormData({
@@ -19,12 +21,7 @@ function AddTrackForm({ onSubmitTrack}) {
   const handleSubmit = e => {
     e.preventDefault();
     onSubmitTrack(formData)
-    setFormData({
-      image: '',
-      title: '',
-      artist: '',
-      bpm: ''
-    })
+    setFormData(defaultFormData)
   }
   return (
       <form onSubmit={handleSubmit}>
@@ -32,7 +29,7 @@ function AddTrackForm({ onSubmitTrack}) {
           <input onChange={handleChange} value={formData.image} type="text" name="image" placeholder="Image URL"/>
           <input onChange={handleChange} value={formData.title} type="text" name="title" placeholder="title" />
           <input onChange={handleChange} value={formData.artist} type="text" name="artist" placeholder="Artist" />
-          <input onChange={handleChange} value={formData.bpm} type="number" name="bpm" placeholder="BPM" step="1.00" />
+          <input onChange={handleChange} value={formData.BPM} type="number" name="BPM" placeholder="BPM" step="1.00" />
        </div>
         <input className="" type="submit" value="Add Track" />
       </form>
