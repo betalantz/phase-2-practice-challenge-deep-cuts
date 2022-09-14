@@ -41,6 +41,13 @@
       "artist": "me",
       "BPM": 120,
       "id": 6
+    },
+    {
+      "image": "",
+      "title": "the heart of me",
+      "artist": "betalantz",
+      "BPM": 115,
+      "id": 7
     }
   ]
 }

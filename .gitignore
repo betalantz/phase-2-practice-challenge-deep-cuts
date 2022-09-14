@@ -12,6 +12,8 @@
 /build
 
 # misc
+db.json
+.eslintcache
 .DS_Store
 .env.local
 .env.development.local
