@@ -41,6 +41,8 @@ As a user, I should be able to:
 - Fill out and submit the form to add a new track. This should add the new track to the table **as well as post the new track to the backend API for persistence**.
 - Filter tracks by typing into the search bar. Only tracks that have a title or artist field that matches the search term should be shown in the table. Filtering happens 'live' as the search term is typed into the search bar.
 
+_N.B. If you're looking for a bit more challenge, there is an `intermediate` branch in this repo which adds a couple of interesting twists to the core deliverables!_
+
 ### Endpoints for Core Deliverables
 
 #### GET /tracks
